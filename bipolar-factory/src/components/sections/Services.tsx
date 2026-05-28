@@ -1,0 +1,170 @@
+'use client'
+import { useLayoutEffect, useRef, useState } from 'react'
+import { gsap } from '@/lib/gsap'
+
+const services = [
+  {
+    number: '01',
+    name: 'Technical Consulting',
+    description: 'Strategy tailored to your actual business problems, not generic frameworks.',
+  },
+  {
+    number: '02',
+    name: 'Digital Transformation',
+    description: 'Redefine how you operate and deliver value. End to end.',
+  },
+  {
+    number: '03',
+    name: 'Research & Development',
+    description: 'Deep dives into emerging tech so you stay ahead, not catch up.',
+  },
+  {
+    number: '04',
+    name: 'Custom Application Development',
+    description: 'Your vision, built precisely. Web, mobile, or platform — we ship it.',
+  },
+]
+
+function ServiceItem({ number, name, description, index }: {
+  number: string; name: string; description: string; index: number
+}) {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <div
+      className="service-item"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '56px 1fr',
+        gap: 24,
+        padding: '32px 0',
+        borderBottom: '0.5px solid #1f1f1f',
+        cursor: 'default',
+        transition: 'all 0.25s ease',
+      }}
+    >
+      <span className="service-number" style={{
+        fontFamily: 'DM Sans, sans-serif',
+        fontSize: 12, fontWeight: 500,
+        color: hovered ? '#e8ff47' : '#2e2e2e',
+        letterSpacing: '0.1em',
+        paddingTop: 3,
+        transition: 'color 0.25s ease',
+      }}>
+        {number}
+      </span>
+      <div style={{
+        transform: hovered ? 'translateX(6px)' : 'translateX(0)',
+        transition: 'transform 0.25s ease',
+      }}>
+        <h3 className="service-name" style={{
+          fontFamily: 'Syne, sans-serif',
+          fontWeight: 700,
+          fontSize: 22, letterSpacing: '-0.02em',
+          color: '#f0ede6',
+          marginBottom: 10,
+          lineHeight: 1.2,
+        }}>
+          {name}
+        </h3>
+        <p style={{
+          fontFamily: 'DM Sans, sans-serif',
+          fontSize: 14, lineHeight: 1.65,
+          color: '#6b6b6b',
+        }}>
+          {description}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export default function Services() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(['.services-eyebrow', '.services-headline', '.services-intro'], {
+        opacity: 0, y: 40,
+        duration: 0.7, stagger: 0.12, ease: 'power3.out',
+        scrollTrigger: { trigger: '.services-section', start: 'top 72%', once: true }
+      })
+
+      gsap.from('.service-item', {
+        opacity: 0, y: 30,
+        duration: 0.6, stagger: 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '.services-list', start: 'top 75%', once: true }
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section
+      ref={sectionRef}
+      className="services-section"
+      style={{
+        background: '#0a0a0a',
+        padding: '120px 48px',
+        borderBottom: '0.5px solid #1f1f1f',
+      }}
+    >
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1.2fr',
+        gap: 80,
+        maxWidth: 1400,
+        margin: '0 auto',
+      }}>
+
+        {/* Left */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <p className="services-eyebrow" style={{
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: 11, fontWeight: 500,
+            color: '#e8ff47', letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            display: 'flex', alignItems: 'center', gap: 10,
+            marginBottom: 32,
+          }}>
+            <span style={{ display: 'block', width: 24, height: 1, background: '#e8ff47' }} />
+            What we do
+          </p>
+
+          <h2 className="services-headline" style={{
+            fontFamily: 'Syne, sans-serif',
+            fontWeight: 800,
+            fontSize: 'clamp(36px, 4vw, 56px)',
+            color: '#f0ede6',
+            letterSpacing: '-0.03em',
+            lineHeight: 1.05,
+            marginBottom: 28,
+          }}>
+            We don't do everything.
+          </h2>
+
+          <p className="services-intro" style={{
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: 17, lineHeight: 1.65,
+            color: '#6b6b6b',
+            maxWidth: 360,
+          }}>
+            We do a few things exceptionally well.
+          </p>
+        </div>
+
+        {/* Right — services list */}
+        <div className="services-list" style={{ paddingTop: 8 }}>
+          {/* Top border */}
+          <div style={{ height: '0.5px', background: '#1f1f1f', marginBottom: 0 }} />
+
+          {services.map((service, i) => (
+            <ServiceItem key={service.number} {...service} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

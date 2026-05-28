@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
+:root {
+  --bg: #0a0a0a; --surface: #111111; --border: #1f1f1f;
+  --text: #f0ede6; --muted: #6b6b6b; --accent: #e8ff47;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0a0a0a; color: #f0ede6; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+@keyframes scrollDrop { 0%{top:-100%} 60%{top:100%} 100%{top:100%} }
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
