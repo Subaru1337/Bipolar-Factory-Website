@@ -106,18 +106,7 @@ export default function Products() {
           <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
           Products
         </p>
-        <h2
-          className="products-headline"
-          style={{
-            fontFamily: 'Syne, sans-serif',
-            fontWeight: 800,
-            fontSize: 'clamp(36px, 5vw, 64px)',
-            color: 'var(--text)',
-            letterSpacing: '-0.03em',
-            lineHeight: 1.0,
-            marginBottom: 16,
-          }}
-        >
+        <h2 className="section-headline section-headline--products products-headline">
           Three things we ship.
         </h2>
         <Link

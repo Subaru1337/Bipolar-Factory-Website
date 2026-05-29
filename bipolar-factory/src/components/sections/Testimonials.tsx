@@ -68,14 +68,7 @@ export default function Testimonials() {
               <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
               What clients say
             </p>
-            <h2 className="testimonials-headline" style={{
-              fontFamily: 'Syne, sans-serif',
-              fontWeight: 800,
-              fontSize: 'clamp(36px, 4vw, 56px)',
-              color: 'var(--text)',
-              letterSpacing: '-0.03em',
-              lineHeight: 1.0,
-            }}>
+            <h2 className="section-headline section-headline--md testimonials-headline">
               Results that speak.
             </h2>
           </div>

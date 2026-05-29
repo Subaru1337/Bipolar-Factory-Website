@@ -1,6 +1,7 @@
 'use client'
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from '@/lib/gsap'
+import { CAREERS_URL } from '@/lib/nav'
 
 export default function Careers() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -77,16 +78,7 @@ export default function Careers() {
           <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
         </p>
 
-        <h2 className="careers-headline" style={{
-          fontFamily: 'Syne, sans-serif',
-          fontWeight: 800,
-          fontSize: 'clamp(40px, 6vw, 72px)',
-          color: 'var(--text)',
-          letterSpacing: '-0.03em',
-          lineHeight: 1.0,
-          marginBottom: 28,
-          textAlign: 'center',
-        }}>
+        <h2 className="section-headline section-headline--careers careers-headline">
           We're building things that matter.{' '}
           <span style={{ color: 'var(--accent)' }}>Come build with us.</span>
         </h2>
@@ -101,7 +93,12 @@ export default function Careers() {
           Coimbatore-based. Globally minded. Always hiring sharp people.
         </p>
 
-        <a className="careers-cta" href="/careers" style={{
+        <a
+          className="careers-cta"
+          href={CAREERS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
           display: 'inline-flex', alignItems: 'center', gap: 8,
           fontFamily: 'DM Sans, sans-serif',
           fontSize: 15, fontWeight: 500,

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap');
 
 /* ── Dark theme (default) ── */
 :root {
@@ -26,6 +26,7 @@
   --brand-lime:    #e8ff47;
   --brand-red:     #ff4d4d;
   --hero-video-scrim: 0.78;
+  --hero-meta-label: #7d7a75;
 }
 
 /* ── Light theme ── */
@@ -54,6 +55,7 @@
   --brand-lime:    #5c6b00;
   --brand-red:     #c43c3c;
   --hero-video-scrim: 0.85;
+  --hero-meta-label: #5a554d;
 }
 
 /* ── System preference fallback (optional — remove if you only want manual toggle) ── */
@@ -83,7 +85,51 @@
     --brand-lime:    #5c6b00;
     --brand-red:     #c43c3c;
     --hero-video-scrim: 0.85;
+    --hero-meta-label: #5a554d;
   }
+}
+
+.hero-meta-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--hero-meta-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Section headlines (Syne — avoids faux-bold stretch at 800) ── */
+.section-headline {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-stretch: normal;
+  letter-spacing: -0.045em;
+  color: var(--text);
+  line-height: 0.92;
+}
+
+.section-headline--hero {
+  font-size: clamp(40px, 7vw, 88px);
+  margin-bottom: 32px;
+}
+
+.section-headline--lg {
+  font-size: clamp(40px, 5vw, 64px);
+}
+
+.section-headline--md {
+  font-size: clamp(36px, 4vw, 56px);
+}
+
+.section-headline--products {
+  font-size: clamp(36px, 5vw, 64px);
+  margin-bottom: 16px;
+}
+
+.section-headline--careers {
+  font-size: clamp(40px, 6vw, 72px);
+  margin-bottom: 28px;
+  text-align: center;
 }
 
 /* ── Hero background video ── */

@@ -73,15 +73,7 @@ export default function Clients() {
             <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
             Clients
           </p>
-          <h2 className="clients-headline" style={{
-            fontFamily: 'Syne, sans-serif',
-            fontWeight: 800,
-            fontSize: 'clamp(36px, 4vw, 56px)',
-            color: 'var(--text)',
-            letterSpacing: '-0.03em',
-            lineHeight: 1.0,
-            marginBottom: 16,
-          }}>
+          <h2 className="section-headline section-headline--md clients-headline" style={{ marginBottom: 16 }}>
             Every client is a long-term partner.
           </h2>
           <p className="clients-sub" style={{

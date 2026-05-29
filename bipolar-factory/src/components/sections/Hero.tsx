@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import ThemeToggle from '@/components/ThemeToggle'
+import { isExternalNav, navHref } from '@/lib/nav'
 
 const HERO_VIDEO_SRC = '/videos/A_cinematic_slow_motion_simula.mp4'
 
@@ -74,11 +75,16 @@ export default function Hero() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
           {['Products', 'Work', 'Services', 'About', 'Careers'].map(link => (
-            <a key={link} href={`/${link.toLowerCase()}`} style={{
-              fontFamily: 'DM Sans, sans-serif', fontSize: 13,
-              color: 'var(--muted)', textDecoration: 'none',
-              transition: 'color 0.2s',
-            }}>
+            <a
+              key={link}
+              href={navHref(link)}
+              {...(isExternalNav(link) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              style={{
+                fontFamily: 'DM Sans, sans-serif', fontSize: 13,
+                color: 'var(--muted)', textDecoration: 'none',
+                transition: 'color 0.2s',
+              }}
+            >
               {link}
             </a>
           ))}
@@ -116,12 +122,7 @@ export default function Hero() {
             Bipolar Factory — Est. 2020
           </p>
 
-          <h1 style={{
-            fontFamily: 'Syne, sans-serif', fontWeight: 800,
-            fontSize: 'clamp(40px, 7vw, 88px)',
-            lineHeight: 0.92, color: 'var(--text)',
-            letterSpacing: '-0.03em', marginBottom: 32,
-          }}>
+          <h1 className="section-headline section-headline--hero">
             We built the system<br />
             that counted<br />
             <span style={{ color: 'var(--accent)' }}>40 million votes.</span>
@@ -164,12 +165,7 @@ export default function Hero() {
           borderLeft: '0.5px solid var(--border)',
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-            <span style={{
-              fontFamily: 'DM Sans, sans-serif', fontSize: 10,
-              color: 'var(--muted-faint)', letterSpacing: '0.12em', textTransform: 'uppercase',
-            }}>
-              Status
-            </span>
+            <span className="hero-meta-label">Status</span>
             <span style={{
               fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500,
               color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: 6,
@@ -189,12 +185,7 @@ export default function Hero() {
             { label: 'Founded',  value: '2020' },
           ].map(({ label, value }) => (
             <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-              <span style={{
-                fontFamily: 'DM Sans, sans-serif', fontSize: 10,
-                color: 'var(--muted-faint)', letterSpacing: '0.12em', textTransform: 'uppercase',
-              }}>
-                {label}
-              </span>
+              <span className="hero-meta-label">{label}</span>
               <span style={{
                 fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500,
                 color: 'var(--text)',
@@ -243,13 +234,7 @@ export default function Hero() {
         </div>
 
         {/* Scroll hint */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-          <span style={{
-            fontFamily: 'DM Sans, sans-serif', fontSize: 10,
-            color: 'var(--muted-dim)', letterSpacing: '0.15em', textTransform: 'uppercase',
-          }}>
-            Scroll
-          </span>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{
             width: '0.5px', height: 40,
             background: 'var(--border-mid)',

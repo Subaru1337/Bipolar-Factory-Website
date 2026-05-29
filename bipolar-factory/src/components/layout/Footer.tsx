@@ -1,5 +1,7 @@
 'use client'
 
+import { isExternalNav, navHref } from '@/lib/nav'
+
 function FacebookIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -110,13 +112,17 @@ export default function Footer() {
             Navigation
           </span>
           {navLinks.map(link => (
-            <a key={link} href={`/${link.toLowerCase()}`} style={{
-              fontFamily: 'DM Sans, sans-serif',
-              fontSize: 14, color: 'var(--muted)',
-              textDecoration: 'none',
-              padding: '7px 0',
-              transition: 'color 0.2s',
-            }}
+            <a
+              key={link}
+              href={navHref(link)}
+              {...(isExternalNav(link) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              style={{
+                fontFamily: 'DM Sans, sans-serif',
+                fontSize: 14, color: 'var(--muted)',
+                textDecoration: 'none',
+                padding: '7px 0',
+                transition: 'color 0.2s',
+              }}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
               onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
             >

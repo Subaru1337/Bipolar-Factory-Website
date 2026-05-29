@@ -170,18 +170,7 @@ export default function Services() {
             What we do
           </p>
 
-          <h2
-            className="services-headline"
-            style={{
-              fontFamily: 'Syne, sans-serif',
-              fontWeight: 800,
-              fontSize: 'clamp(36px, 4vw, 56px)',
-              color: 'var(--text)',
-              letterSpacing: '-0.03em',
-              lineHeight: 1.05,
-              marginBottom: 28,
-            }}
-          >
+          <h2 className="section-headline section-headline--md services-headline" style={{ marginBottom: 28 }}>
             We don&apos;t do everything.
           </h2>
 

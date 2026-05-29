@@ -80,15 +80,7 @@ export default function FeaturedWork() {
             Featured work — Case study 01
           </p>
 
-          <h2 className="work-headline" style={{
-            fontFamily: 'Syne, sans-serif',
-            fontWeight: 800,
-            fontSize: 'clamp(40px, 5vw, 64px)',
-            lineHeight: 1.0,
-            color: 'var(--text)',
-            letterSpacing: '-0.03em',
-            marginBottom: 40,
-          }}>
+          <h2 className="section-headline section-headline--lg work-headline" style={{ marginBottom: 40 }}>
             Counting democracy,<br />
             <span style={{ color: 'var(--accent)' }}>one vote at a time.</span>
           </h2>

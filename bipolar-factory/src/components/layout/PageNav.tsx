@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import ThemeToggle from '@/components/ThemeToggle'
+import { isExternalNav, navHref } from '@/lib/nav'
 
 const NAV = ['Products', 'Work', 'Services', 'About', 'Careers'] as const
 
@@ -13,15 +14,26 @@ export default function PageNav({ active }: { active?: PageNavActive }) {
         BPF<span style={{ color: 'var(--accent)' }}>.</span>
       </Link>
       <div className="page-nav-links">
-        {NAV.map((n) => (
-          <Link
-            key={n}
-            href={`/${n.toLowerCase()}`}
-            className={n === active ? 'active' : undefined}
-          >
-            {n}
-          </Link>
-        ))}
+        {NAV.map((n) =>
+          isExternalNav(n) ? (
+            <a
+              key={n}
+              href={navHref(n)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {n}
+            </a>
+          ) : (
+            <Link
+              key={n}
+              href={navHref(n)}
+              className={n === active ? 'active' : undefined}
+            >
+              {n}
+            </Link>
+          )
+        )}
         <Link href="/contact" className="page-nav-cta">
           Contact us
         </Link>
