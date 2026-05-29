@@ -209,7 +209,7 @@ export default function ServicesPage() {
           Technology Partnership
         </p>
         <div className="services-hero-grid">
-          <h1 className="page-headline">
+          <h1 className="section-headline section-headline--services-page page-headline">
             Tech solutions.
             <br />
             <span style={{ color: 'var(--accent)' }}>Human understanding.</span>
@@ -259,7 +259,7 @@ export default function ServicesPage() {
           <span className="eyebrow-line" />
           FAQs
         </p>
-        <h2 className="faq-title">Common questions.</h2>
+        <h2 className="section-headline section-headline--faq faq-title">Common questions.</h2>
         <div style={{ height: '0.5px', background: 'var(--border)' }} />
         {faqs.map((f, i) => (
           <FAQItem key={i} q={f.q} a={f.a} />
@@ -267,7 +267,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="page-cta">
-        <h2>
+        <h2 className="section-headline section-headline--page-cta">
           Your path to excellence
           <br />
           <span style={{ color: 'var(--accent)' }}>begins here.</span>

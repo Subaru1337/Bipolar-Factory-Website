@@ -83,7 +83,7 @@ export default function WorkPage() {
           <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
           Case Studies
         </p>
-        <h1 className="page-headline" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(48px, 8vw, 110px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginBottom: 32, maxWidth: 800 }}>
+        <h1 className="section-headline section-headline--page page-headline" style={{ maxWidth: 800 }}>
           Spotlight on<br /><span style={{ color: 'var(--accent)' }}>success.</span>
         </h1>
         <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, color: 'var(--muted)', lineHeight: 1.6, maxWidth: 480 }}>
@@ -151,7 +151,7 @@ export default function WorkPage() {
 
       {/* CTA */}
       <div style={{ textAlign: 'center', padding: '100px 48px', borderTop: '0.5px solid var(--border)' }}>
-        <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-0.03em', marginBottom: 40 }}>
+        <h2 className="section-headline section-headline--cta">
           Your project could be<br /><span style={{ color: 'var(--accent)' }}>next.</span>
         </h2>
         <Link href="/contact" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 15, fontWeight: 500, color: 'var(--accent-text)', background: 'var(--accent)', padding: '16px 36px', borderRadius: 100, textDecoration: 'none' }}>

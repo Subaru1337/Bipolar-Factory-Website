@@ -46,7 +46,7 @@ export default function AboutPage() {
             <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
             About us
           </p>
-          <h1 className="about-headline" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(52px, 8vw, 110px)', lineHeight: 0.88, letterSpacing: '-0.04em' }}>
+          <h1 className="section-headline section-headline--about-hero about-headline">
             We build<br />for<br /><span style={{ color: 'var(--accent)' }}>people.</span>
           </h1>
         </div>
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
             What we do
           </p>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 4vw, 56px)', letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 24 }}>
+          <h2 className="section-headline section-headline--md" style={{ marginBottom: 24 }}>
             Beyond conventional products.
           </h2>
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, color: 'var(--muted)', lineHeight: 1.7 }}>
@@ -112,7 +112,7 @@ export default function AboutPage() {
           <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
           Our values
         </p>
-        <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 4vw, 56px)', letterSpacing: '-0.03em', marginBottom: 56 }}>What drives us.</h2>
+        <h2 className="section-headline section-headline--md" style={{ marginBottom: 56 }}>What drives us.</h2>
         <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
           {values.map((v, i) => (
             <div key={v.name} className="value-card" style={{
@@ -136,7 +136,7 @@ export default function AboutPage() {
             <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
             Our mission
           </p>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 4vw, 56px)', letterSpacing: '-0.03em', lineHeight: 1.0, marginBottom: 28 }}>
+          <h2 className="section-headline section-headline--md" style={{ marginBottom: 28 }}>
             Change as a<br /><span style={{ color: 'var(--accent)' }}>call to action.</span>
           </h2>
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, color: 'var(--muted)', lineHeight: 1.75 }}>

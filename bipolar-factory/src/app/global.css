@@ -132,6 +132,40 @@
   text-align: center;
 }
 
+.section-headline--page {
+  font-size: clamp(48px, 8vw, 110px);
+  margin-bottom: 32px;
+}
+
+.section-headline--page-contact {
+  font-size: clamp(48px, 8vw, 100px);
+  margin-bottom: 72px;
+}
+
+.section-headline--about-hero {
+  font-size: clamp(52px, 8vw, 110px);
+}
+
+.section-headline--cta {
+  font-size: clamp(36px, 5vw, 64px);
+  margin-bottom: 40px;
+}
+
+.section-headline--services-page {
+  font-size: clamp(40px, 6vw, 88px);
+  margin: 0;
+}
+
+.section-headline--faq {
+  font-size: clamp(32px, 4vw, 56px);
+  margin: 0 0 56px;
+}
+
+.section-headline--page-cta {
+  font-size: clamp(36px, 5vw, 64px);
+  margin: 0 0 16px;
+}
+
 /* ── Hero background video ── */
 .hero-video-wrap {
   position: absolute;
@@ -363,12 +397,8 @@ body {
   align-items: end;
 }
 
-.services-hero .page-headline {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
+.services-hero .page-headline.section-headline {
   font-size: clamp(40px, 6vw, 88px);
-  line-height: 0.92;
-  letter-spacing: -0.04em;
   margin: 0;
 }
 
@@ -460,11 +490,8 @@ body {
 
 .faq-section { padding-bottom: 100px; }
 
-.faq-title {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
+.faq-title.section-headline {
   font-size: clamp(32px, 4vw, 56px);
-  letter-spacing: -0.03em;
   margin: 0 0 56px;
 }
 
@@ -475,13 +502,9 @@ body {
   background: var(--bg-alt);
 }
 
-.page-cta h2 {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
+.page-cta h2.section-headline {
   font-size: clamp(36px, 5vw, 64px);
-  letter-spacing: -0.03em;
   margin: 0 0 16px;
-  line-height: 1.05;
 }
 
 .page-cta p {

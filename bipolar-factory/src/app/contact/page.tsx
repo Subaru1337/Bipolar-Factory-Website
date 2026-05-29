@@ -46,7 +46,7 @@ export default function ContactPage() {
           <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
           Contact us
         </p>
-        <h1 className="page-headline" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(48px, 8vw, 100px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginBottom: 72 }}>
+        <h1 className="section-headline section-headline--page-contact page-headline">
           Drop us<br /><span style={{ color: 'var(--accent)' }}>a line.</span>
         </h1>
 

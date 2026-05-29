@@ -67,7 +67,7 @@ export default function ProductsPage() {
           <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
           Products
         </p>
-        <h1 className="page-headline" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(48px, 8vw, 110px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginBottom: 32, maxWidth: 900 }}>
+        <h1 className="section-headline section-headline--page page-headline" style={{ maxWidth: 900 }}>
           Our tech,<br /><span style={{ color: 'var(--accent)' }}>your odyssey.</span>
         </h1>
         <p className="page-sub" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, color: 'var(--muted)', lineHeight: 1.6, maxWidth: 520 }}>
@@ -189,7 +189,7 @@ export default function ProductsPage() {
       {/* CTA */}
       <div style={{ textAlign: 'center', padding: '100px 48px', borderTop: '0.5px solid var(--border)' }}>
         <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, color: 'var(--accent)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>Ready to start?</p>
-        <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-0.03em', marginBottom: 40 }}>
+        <h2 className="section-headline section-headline--cta">
           Let's build something<br /><span style={{ color: 'var(--accent)' }}>that matters.</span>
         </h2>
         <Link href="/contact" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 15, fontWeight: 500, color: 'var(--accent-text)', background: 'var(--accent)', padding: '16px 36px', borderRadius: 100, textDecoration: 'none' }}>
