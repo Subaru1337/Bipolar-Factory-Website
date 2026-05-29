@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+  const [theme, setTheme] = useState<'dark' | 'light'>('light')
 
   // On mount — read saved preference
   useEffect(() => {
     const saved = localStorage.getItem('bpf-theme') as 'dark' | 'light' | null
-    const preferred = saved ?? 'dark'
+    const preferred = saved ?? 'light'
     setTheme(preferred)
     document.documentElement.setAttribute('data-theme', preferred)
   }, [])

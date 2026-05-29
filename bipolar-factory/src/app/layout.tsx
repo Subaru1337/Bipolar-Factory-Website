@@ -8,12 +8,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         {/*
           Anti-flash script — runs before React hydrates.
-          Reads localStorage and sets data-theme immediately
-          so there's no white flash on page load in light mode.
+          Applies saved theme from localStorage, or keeps light as default.
         */}
         <script
           dangerouslySetInnerHTML={{
@@ -22,6 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 var t = localStorage.getItem('bpf-theme');
                 if (t === 'light' || t === 'dark') {
                   document.documentElement.setAttribute('data-theme', t);
+                } else {
+                  document.documentElement.setAttribute('data-theme', 'light');
                 }
               } catch(e) {}
             `,
