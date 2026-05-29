@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="light" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         {/*
           Anti-flash script — runs before React hydrates.
-          Applies saved theme from localStorage, or keeps light as default.
+          Applies saved theme from localStorage, or keeps dark as default.
         */}
         <script
           dangerouslySetInnerHTML={{
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 if (t === 'light' || t === 'dark') {
                   document.documentElement.setAttribute('data-theme', t);
                 } else {
-                  document.documentElement.setAttribute('data-theme', 'light');
+                  document.documentElement.setAttribute('data-theme', 'dark');
                 }
               } catch(e) {}
             `,
