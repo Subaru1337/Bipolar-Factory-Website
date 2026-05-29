@@ -52,9 +52,9 @@ export default function FeaturedWork() {
       ref={sectionRef}
       className="work-section"
       style={{
-        background: '#0a0a0a',
+        background: 'var(--bg)',
         padding: '120px 48px',
-        borderBottom: '0.5px solid #1f1f1f',
+        borderBottom: '0.5px solid var(--border)',
       }}
     >
       <div style={{
@@ -71,12 +71,12 @@ export default function FeaturedWork() {
           <p className="work-eyebrow" style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 11, fontWeight: 500,
-            color: '#e8ff47', letterSpacing: '0.18em',
+            color: 'var(--accent)', letterSpacing: '0.18em',
             textTransform: 'uppercase',
             display: 'flex', alignItems: 'center', gap: 10,
             marginBottom: 32,
           }}>
-            <span style={{ display: 'block', width: 24, height: 1, background: '#e8ff47' }} />
+            <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
             Featured work — Case study 01
           </p>
 
@@ -85,12 +85,12 @@ export default function FeaturedWork() {
             fontWeight: 800,
             fontSize: 'clamp(40px, 5vw, 64px)',
             lineHeight: 1.0,
-            color: '#f0ede6',
+            color: 'var(--text)',
             letterSpacing: '-0.03em',
             marginBottom: 40,
           }}>
             Counting democracy,<br />
-            <span style={{ color: '#e8ff47' }}>one vote at a time.</span>
+            <span style={{ color: 'var(--accent)' }}>one vote at a time.</span>
           </h2>
 
           <div className="work-body" style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 48 }}>
@@ -114,7 +114,7 @@ export default function FeaturedWork() {
             display: 'inline-flex', alignItems: 'center', gap: 8,
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 14, fontWeight: 500,
-            color: '#e8ff47',
+            color: 'var(--accent)',
             textDecoration: 'none',
             letterSpacing: '0.02em',
           }}>
@@ -125,8 +125,8 @@ export default function FeaturedWork() {
 
         {/* Right column — stats card */}
         <div className="work-card" style={{
-          background: '#111111',
-          border: '0.5px solid #1f1f1f',
+          background: 'var(--surface)',
+          border: '0.5px solid var(--border)',
           borderRadius: 16,
           padding: '48px 40px',
           display: 'flex', flexDirection: 'column', gap: 40,
@@ -150,7 +150,7 @@ export default function FeaturedWork() {
                     fontFamily: 'Syne, sans-serif',
                     fontWeight: 700,
                     fontSize: 'clamp(28px, 3vw, 40px)',
-                    color: '#f0ede6',
+                    color: 'var(--text)',
                     letterSpacing: '-0.03em',
                     lineHeight: 1,
                   }}
@@ -169,7 +169,7 @@ export default function FeaturedWork() {
           </div>
 
           {/* Divider */}
-          <div style={{ height: '0.5px', background: '#1f1f1f' }} />
+          <div style={{ height: '0.5px', background: 'var(--border)' }} />
 
           {/* Quote */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -180,12 +180,12 @@ export default function FeaturedWork() {
               fontStyle: 'italic',
               margin: 0,
               paddingLeft: 20,
-              borderLeft: '2px solid #e8ff47',
+              borderLeft: '2px solid var(--accent)',
             }}>
               "The automated vote counting system developed by Bipolar Factory was a testament to their technological prowess and understanding of complex systems."
             </blockquote>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 20 }}>
-              <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500, color: '#f0ede6' }}>
+              <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500, color: 'var(--text)' }}>
                 Gajapathy Chakravarthy
               </span>
               <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, color: 'var(--muted-dim)', letterSpacing: '0.08em' }}>

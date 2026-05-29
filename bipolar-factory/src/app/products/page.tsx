@@ -2,15 +2,14 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from '@/lib/gsap'
 import Link from 'next/link'
-
-const NAV = ['Products', 'Work', 'Services', 'About', 'Careers']
+import PageNav from '@/components/layout/PageNav'
 
 const products = [
   {
     index: '01',
     name: 'OLY Store Sync',
     tag: 'SaaS · Retail Analytics',
-    accent: '#4d9fff',
+    accent: 'var(--brand-blue)',
     website: 'https://www.oly.live/',
     deployedBy: ['Max Stores'],
     description: 'An advanced retail analytics solution designed to unlock the full potential of your existing security cameras, going beyond basic image capture to deliver unparalleled insights.',
@@ -21,7 +20,7 @@ const products = [
     index: '02',
     name: 'OLY Control Center',
     tag: 'Video Management System',
-    accent: '#4d9fff',
+    accent: 'var(--brand-blue)',
     website: 'https://www.oly.live/',
     deployedBy: ['Election Commission of India', 'Govt. of Tamil Nadu'],
     description: 'Enterprises can leverage Oly\'s advanced Video Management System for centralised oversight and monitoring of security cameras.',
@@ -32,7 +31,7 @@ const products = [
     index: '03',
     name: 'Metawood',
     tag: 'Web3 · Creator Economy',
-    accent: '#e8ff47',
+    accent: 'var(--brand-lime)',
     website: 'https://www.themetawood.com/',
     deployedBy: [],
     description: 'A pioneering fusion of a gamified streaming platform and a decentralized creator economy, harnessing the power of the metaverse and virtual reality.',
@@ -40,32 +39,6 @@ const products = [
     features: ['Single-player Story Mode', 'Watch Party', 'Free Roam', 'Virtual Theater'],
   },
 ]
-
-function Nav() {
-  return (
-    <nav style={{
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      padding: '0 48px', height: 64,
-      background: 'rgba(10,10,10,0.85)', backdropFilter: 'blur(12px)',
-      borderBottom: '0.5px solid #1f1f1f',
-    }}>
-      <Link href="/" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 16, color: '#f0ede6', textDecoration: 'none', letterSpacing: '-0.02em' }}>
-        BPF<span style={{ color: '#e8ff47' }}>.</span>
-      </Link>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-        {NAV.map(n => (
-          <Link key={n} href={`/${n.toLowerCase()}`} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, color: n === 'Products' ? '#e8ff47' : 'var(--muted)', textDecoration: 'none' }}>
-            {n}
-          </Link>
-        ))}
-        <Link href="/contact" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500, color: '#0a0a0a', background: '#e8ff47', padding: '8px 18px', borderRadius: 100, textDecoration: 'none' }}>
-          Contact us
-        </Link>
-      </div>
-    </nav>
-  )
-}
 
 export default function ProductsPage() {
   const pageRef = useRef<HTMLDivElement>(null)
@@ -85,17 +58,17 @@ export default function ProductsPage() {
   }, [])
 
   return (
-    <div ref={pageRef} style={{ background: '#0a0a0a', minHeight: '100vh', color: '#f0ede6' }}>
-      <Nav />
+    <div ref={pageRef} style={{ background: 'var(--bg)', minHeight: '100vh', color: 'var(--text)' }}>
+      <PageNav active="Products" />
 
       {/* Hero */}
-      <div style={{ padding: '140px 48px 80px', borderBottom: '0.5px solid #1f1f1f', maxWidth: 1400, margin: '0 auto' }}>
-        <p className="page-eyebrow" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, fontWeight: 500, color: '#e8ff47', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
-          <span style={{ display: 'block', width: 24, height: 1, background: '#e8ff47' }} />
+      <div style={{ padding: '140px 48px 80px', borderBottom: '0.5px solid var(--border)', maxWidth: 1400, margin: '0 auto' }}>
+        <p className="page-eyebrow" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, fontWeight: 500, color: 'var(--accent)', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
+          <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
           Products
         </p>
         <h1 className="page-headline" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(48px, 8vw, 110px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginBottom: 32, maxWidth: 900 }}>
-          Our tech,<br /><span style={{ color: '#e8ff47' }}>your odyssey.</span>
+          Our tech,<br /><span style={{ color: 'var(--accent)' }}>your odyssey.</span>
         </h1>
         <p className="page-sub" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, color: 'var(--muted)', lineHeight: 1.6, maxWidth: 520 }}>
           Each product is crafted to not only meet current market demands but to propel users into the forefront of their industries.
@@ -108,21 +81,21 @@ export default function ProductsPage() {
           <div key={p.index} className="product-row" style={{
             display: 'grid',
             gridTemplateColumns: i % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
-            borderBottom: '0.5px solid #1f1f1f',
+            borderBottom: '0.5px solid var(--border)',
           }}>
             {/* Left panel */}
             <div style={{
               padding: '80px 48px',
-              borderRight: '0.5px solid #1f1f1f',
+              borderRight: '0.5px solid var(--border)',
               display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-              background: i % 2 === 1 ? '#0d0d0d' : '#0a0a0a',
+              background: i % 2 === 1 ? 'var(--surface-stripe)' : 'var(--bg)',
               position: 'relative', overflow: 'hidden',
             }}>
               {/* Big index number */}
               <span style={{
                 position: 'absolute', top: 24, right: 32,
                 fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 120,
-                color: '#161616', letterSpacing: '-0.04em', lineHeight: 1,
+                color: 'var(--number-watermark)', letterSpacing: '-0.04em', lineHeight: 1,
                 userSelect: 'none',
               }}>{p.index}</span>
 
@@ -150,13 +123,13 @@ export default function ProductsPage() {
                 {p.website && (
                   <a href={p.website} target="_blank" rel="noopener noreferrer" style={{
                     fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500,
-                    color: '#0a0a0a', background: p.accent,
+                    color: 'var(--accent-text)', background: p.accent,
                     padding: '10px 22px', borderRadius: 100, textDecoration: 'none',
                   }}>Visit Website →</a>
                 )}
                 <Link href="/contact" style={{
                   fontFamily: 'DM Sans, sans-serif', fontSize: 13,
-                  color: 'var(--muted)', border: '0.5px solid #2a2a2a',
+                  color: 'var(--muted)', border: '0.5px solid var(--border-mid)',
                   padding: '10px 22px', borderRadius: 100, textDecoration: 'none',
                 }}>Contact Us</Link>
               </div>
@@ -165,7 +138,7 @@ export default function ProductsPage() {
             {/* Right panel */}
             <div style={{
               padding: '80px 48px',
-              background: '#111111',
+              background: 'var(--surface)',
               display: 'flex', flexDirection: 'column', gap: 40,
             }}>
               <div>
@@ -183,10 +156,10 @@ export default function ProductsPage() {
                     <div key={fi} style={{
                       display: 'flex', alignItems: 'center', gap: 12,
                       padding: '12px 0',
-                      borderBottom: fi < p.features.length - 1 ? '0.5px solid #1a1a1a' : 'none',
+                      borderBottom: fi < p.features.length - 1 ? '0.5px solid var(--border)' : 'none',
                     }}>
                       <span style={{ width: 4, height: 4, borderRadius: '50%', background: p.accent, flexShrink: 0 }} />
-                      <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#f0ede6' }}>{f}</span>
+                      <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: 'var(--text)' }}>{f}</span>
                     </div>
                   ))}
                 </div>
@@ -201,7 +174,7 @@ export default function ProductsPage() {
                     {p.deployedBy.map(d => (
                       <span key={d} style={{
                         fontFamily: 'DM Sans, sans-serif', fontSize: 12,
-                        color: 'var(--muted)', border: '0.5px solid #1f1f1f',
+                        color: 'var(--muted)', border: '0.5px solid var(--border)',
                         padding: '4px 12px', borderRadius: 100,
                       }}>{d}</span>
                     ))}
@@ -214,12 +187,12 @@ export default function ProductsPage() {
       </div>
 
       {/* CTA */}
-      <div style={{ textAlign: 'center', padding: '100px 48px', borderTop: '0.5px solid #1f1f1f' }}>
-        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, color: '#e8ff47', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>Ready to start?</p>
+      <div style={{ textAlign: 'center', padding: '100px 48px', borderTop: '0.5px solid var(--border)' }}>
+        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, color: 'var(--accent)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>Ready to start?</p>
         <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-0.03em', marginBottom: 40 }}>
-          Let's build something<br /><span style={{ color: '#e8ff47' }}>that matters.</span>
+          Let's build something<br /><span style={{ color: 'var(--accent)' }}>that matters.</span>
         </h2>
-        <Link href="/contact" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 15, fontWeight: 500, color: '#0a0a0a', background: '#e8ff47', padding: '16px 36px', borderRadius: 100, textDecoration: 'none' }}>
+        <Link href="/contact" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 15, fontWeight: 500, color: 'var(--accent-text)', background: 'var(--accent)', padding: '16px 36px', borderRadius: 100, textDecoration: 'none' }}>
           Get in touch →
         </Link>
       </div>

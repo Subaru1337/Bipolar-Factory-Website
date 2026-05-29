@@ -7,25 +7,25 @@ const clients = [
     name: 'Zigma',
     context: 'Waste Management',
     initials: 'ZG',
-    accent: '#4d9fff',
+    accent: 'var(--brand-blue)',
   },
   {
     name: 'WoTA',
     context: 'Textile Industry',
     initials: 'WT',
-    accent: '#e8ff47',
+    accent: 'var(--brand-lime)',
   },
   {
     name: 'iNET Secure Labs',
     context: 'Election Technology',
     initials: 'iN',
-    accent: '#ff4d4d',
+    accent: 'var(--brand-red)',
   },
   {
     name: 'Bihar Election Commission',
     context: 'Government · India',
     initials: 'BEC',
-    accent: '#e8ff47',
+    accent: 'var(--brand-lime)',
   },
 ]
 
@@ -54,9 +54,9 @@ export default function Clients() {
       ref={sectionRef}
       className="clients-section"
       style={{
-        background: '#0a0a0a',
+        background: 'var(--bg)',
         padding: '120px 48px',
-        borderBottom: '0.5px solid #1f1f1f',
+        borderBottom: '0.5px solid var(--border)',
       }}
     >
       <div style={{ maxWidth: 1400, margin: '0 auto' }}>
@@ -65,19 +65,19 @@ export default function Clients() {
           <p className="clients-eyebrow" style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 11, fontWeight: 500,
-            color: '#e8ff47', letterSpacing: '0.18em',
+            color: 'var(--accent)', letterSpacing: '0.18em',
             textTransform: 'uppercase',
             display: 'flex', alignItems: 'center', gap: 10,
             marginBottom: 20,
           }}>
-            <span style={{ display: 'block', width: 24, height: 1, background: '#e8ff47' }} />
+            <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
             Clients
           </p>
           <h2 className="clients-headline" style={{
             fontFamily: 'Syne, sans-serif',
             fontWeight: 800,
             fontSize: 'clamp(36px, 4vw, 56px)',
-            color: '#f0ede6',
+            color: 'var(--text)',
             letterSpacing: '-0.03em',
             lineHeight: 1.0,
             marginBottom: 16,
@@ -105,15 +105,15 @@ export default function Clients() {
               key={client.name}
               className="client-tile"
               style={{
-                background: '#111111',
-                border: '0.5px solid #1f1f1f',
+                background: 'var(--surface)',
+                border: '0.5px solid var(--border)',
                 borderRadius: i === 0 ? '12px 0 0 12px' : i === clients.length - 1 ? '0 12px 12px 0' : 0,
                 padding: '40px 32px',
                 display: 'flex', flexDirection: 'column', gap: 24,
                 transition: 'background 0.2s ease',
               }}
-              onMouseEnter={e => (e.currentTarget.style.background = '#161616')}
-              onMouseLeave={e => (e.currentTarget.style.background = '#111111')}
+              onMouseEnter={e => (e.currentTarget.style.background = 'var(--surface-hover)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'var(--surface)')}
             >
               {/* Logo placeholder — initials in accent */}
               <div style={{
@@ -138,7 +138,7 @@ export default function Clients() {
                 <span style={{
                   fontFamily: 'Syne, sans-serif',
                   fontWeight: 700, fontSize: 18,
-                  color: '#f0ede6', letterSpacing: '-0.02em',
+                  color: 'var(--text)', letterSpacing: '-0.02em',
                 }}>
                   {client.name}
                 </span>

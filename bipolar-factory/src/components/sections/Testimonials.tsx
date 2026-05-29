@@ -48,9 +48,9 @@ export default function Testimonials() {
       ref={sectionRef}
       className="testimonials-section"
       style={{
-        background: '#050505',
+        background: 'var(--section-alt)',
         padding: '120px 48px',
-        borderBottom: '0.5px solid #1f1f1f',
+        borderBottom: '0.5px solid var(--border)',
       }}
     >
       <div style={{ maxWidth: 1400, margin: '0 auto' }}>
@@ -60,19 +60,19 @@ export default function Testimonials() {
             <p className="testimonials-eyebrow" style={{
               fontFamily: 'DM Sans, sans-serif',
               fontSize: 11, fontWeight: 500,
-              color: '#e8ff47', letterSpacing: '0.18em',
+              color: 'var(--accent)', letterSpacing: '0.18em',
               textTransform: 'uppercase',
               display: 'flex', alignItems: 'center', gap: 10,
               marginBottom: 20,
             }}>
-              <span style={{ display: 'block', width: 24, height: 1, background: '#e8ff47' }} />
+              <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
               What clients say
             </p>
             <h2 className="testimonials-headline" style={{
               fontFamily: 'Syne, sans-serif',
               fontWeight: 800,
               fontSize: 'clamp(36px, 4vw, 56px)',
-              color: '#f0ede6',
+              color: 'var(--text)',
               letterSpacing: '-0.03em',
               lineHeight: 1.0,
             }}>
@@ -92,8 +92,8 @@ export default function Testimonials() {
               key={i}
               className="testimonial-card"
               style={{
-                background: '#111111',
-                border: '0.5px solid #1f1f1f',
+                background: 'var(--surface)',
+                border: '0.5px solid var(--border)',
                 borderRadius: i === 0 ? '12px 0 0 12px' : i === 2 ? '0 12px 12px 0' : 0,
                 padding: '40px 36px',
                 display: 'flex', flexDirection: 'column', gap: 32,
@@ -103,7 +103,7 @@ export default function Testimonials() {
               <span style={{
                 fontFamily: 'Syne, sans-serif',
                 fontSize: 64, lineHeight: 1,
-                color: '#e8ff47', opacity: 0.3,
+                color: 'var(--accent)', opacity: 0.3,
                 fontWeight: 800,
                 display: 'block',
                 marginBottom: -16,
@@ -121,14 +121,14 @@ export default function Testimonials() {
               </blockquote>
 
               {/* Divider */}
-              <div style={{ height: '0.5px', background: '#1f1f1f' }} />
+              <div style={{ height: '0.5px', background: 'var(--border)' }} />
 
               {/* Attribution */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                 <span style={{
                   fontFamily: 'DM Sans, sans-serif',
                   fontSize: 14, fontWeight: 500,
-                  color: '#f0ede6',
+                  color: 'var(--text)',
                 }}>
                   {t.name}
                 </span>

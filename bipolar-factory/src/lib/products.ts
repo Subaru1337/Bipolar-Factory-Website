@@ -26,7 +26,7 @@ export const products: Product[] = [
       'Theft/Fire Detection',
       'Alarm Triggers',
     ],
-    accent: '#4d9fff',
+    accent: 'var(--brand-blue)',
   },
   {
     slug: 'oly-control-center',
@@ -38,7 +38,7 @@ export const products: Product[] = [
       'Control Center, characterised by a data-driven design and a customisable dashboard featuring useful widgets, can seamlessly integrate with Oly Store Sync or operate independently as a standalone software, seamlessly working with your existing retail analytics suite.',
     ],
     features: ['Camera Control', 'Live Widgets', 'Recording and Storage', 'Map View'],
-    accent: '#4d9fff',
+    accent: 'var(--brand-blue)',
   },
   {
     slug: 'metawood',
@@ -52,7 +52,7 @@ export const products: Product[] = [
       'Metawood stands as a visionary force shaping the future of content creation, where personalized content takes center stage, and audiences become integral participants in this dynamic, transformative entertainment landscape.',
     ],
     features: ['Single-player Story Mode', 'Watch Party', 'Free Roam', 'Virtual Theater'],
-    accent: '#e8ff47',
+    accent: 'var(--brand-lime)',
   },
 ]
 

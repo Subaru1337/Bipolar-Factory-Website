@@ -21,7 +21,7 @@ function TickerInner({ hidden }: { hidden?: boolean }) {
           <span style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 12, fontWeight: 500,
-            color: lit ? '#f0ede6' : 'var(--muted-dim)',
+            color: lit ? 'var(--text)' : 'var(--muted-dim)',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             padding: '0 28px',
@@ -30,7 +30,7 @@ function TickerInner({ hidden }: { hidden?: boolean }) {
           </span>
           <span style={{
             width: 3, height: 3, borderRadius: '50%',
-            background: '#e8ff47', flexShrink: 0,
+            background: 'var(--accent)', flexShrink: 0,
             display: 'inline-block',
           }} />
         </span>
@@ -42,16 +42,16 @@ function TickerInner({ hidden }: { hidden?: boolean }) {
 export default function Ticker() {
   return (
     <div style={{
-      background: '#0a0a0a',
-      borderTop: '0.5px solid #1f1f1f',
-      borderBottom: '0.5px solid #1f1f1f',
+      background: 'var(--bg)',
+      borderTop: '0.5px solid var(--border)',
+      borderBottom: '0.5px solid var(--border)',
       padding: '18px 0',
       overflow: 'hidden',
       position: 'relative',
     }}>
       {/* Fade edges */}
-      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to right, #0a0a0a, transparent)', zIndex: 2 }} />
-      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #0a0a0a, transparent)', zIndex: 2 }} />
+      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to right, var(--bg), transparent)', zIndex: 2 }} />
+      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, var(--bg), transparent)', zIndex: 2 }} />
 
       <div style={{ display: 'flex', width: 'max-content', animation: 'ticker 28s linear infinite' }}>
         <TickerInner />

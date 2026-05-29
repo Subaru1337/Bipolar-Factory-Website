@@ -1,6 +1,6 @@
 export default function BiharElectionCaseStudyPage() {
   return (
-    <main style={{ background: '#0a0a0a', color: '#f0ede6', minHeight: '100vh', padding: '56px 48px' }}>
+    <main style={{ background: 'var(--bg)', color: 'var(--text)', minHeight: '100vh', padding: '56px 48px' }}>
       <a href="/work" style={{ color: 'var(--muted)', textDecoration: 'none' }}>
         ← Back to case studies
       </a>

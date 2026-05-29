@@ -31,9 +31,9 @@ export default function Careers() {
       ref={sectionRef}
       className="careers-section"
       style={{
-        background: '#080808',
+        background: 'var(--bg-alt)',
         padding: '160px 48px',
-        borderBottom: '0.5px solid #1f1f1f',
+        borderBottom: '0.5px solid var(--border)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -45,7 +45,7 @@ export default function Careers() {
         transform: 'translate(-50%, -50%)',
         width: 600, height: 600,
         borderRadius: '50%',
-        background: 'radial-gradient(circle, #e8ff4720 0%, transparent 70%)',
+        background: 'radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)',
         opacity: 0.08,
         pointerEvents: 'none',
       }} />
@@ -53,7 +53,7 @@ export default function Careers() {
       {/* Grid lines overlay */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
-        backgroundImage: 'linear-gradient(#1a1a1a 0.5px, transparent 0.5px), linear-gradient(90deg, #1a1a1a 0.5px, transparent 0.5px)',
+        backgroundImage: 'linear-gradient(var(--grid-line) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--grid-line) 0.5px, transparent 0.5px)',
         backgroundSize: '80px 80px',
         opacity: 0.15,
       }} />
@@ -67,28 +67,28 @@ export default function Careers() {
         <p className="careers-eyebrow" style={{
           fontFamily: 'DM Sans, sans-serif',
           fontSize: 11, fontWeight: 500,
-          color: '#e8ff47', letterSpacing: '0.18em',
+          color: 'var(--accent)', letterSpacing: '0.18em',
           textTransform: 'uppercase',
           display: 'flex', alignItems: 'center', gap: 10,
           marginBottom: 32,
         }}>
-          <span style={{ display: 'block', width: 24, height: 1, background: '#e8ff47' }} />
+          <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
           Join the team
-          <span style={{ display: 'block', width: 24, height: 1, background: '#e8ff47' }} />
+          <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
         </p>
 
         <h2 className="careers-headline" style={{
           fontFamily: 'Syne, sans-serif',
           fontWeight: 800,
           fontSize: 'clamp(40px, 6vw, 72px)',
-          color: '#f0ede6',
+          color: 'var(--text)',
           letterSpacing: '-0.03em',
           lineHeight: 1.0,
           marginBottom: 28,
           textAlign: 'center',
         }}>
           We're building things that matter.{' '}
-          <span style={{ color: '#e8ff47' }}>Come build with us.</span>
+          <span style={{ color: 'var(--accent)' }}>Come build with us.</span>
         </h2>
 
         <p className="careers-sub" style={{
@@ -105,7 +105,7 @@ export default function Careers() {
           display: 'inline-flex', alignItems: 'center', gap: 8,
           fontFamily: 'DM Sans, sans-serif',
           fontSize: 15, fontWeight: 500,
-          color: '#0a0a0a', background: '#e8ff47',
+          color: 'var(--accent-text)', background: 'var(--accent)',
           padding: '16px 36px', borderRadius: 100,
           textDecoration: 'none',
           transition: 'opacity 0.2s ease',
