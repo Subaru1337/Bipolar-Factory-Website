@@ -48,7 +48,7 @@ function ServiceItem({ number, name, description, index }: {
       <span className="service-number" style={{
         fontFamily: 'DM Sans, sans-serif',
         fontSize: 12, fontWeight: 500,
-        color: hovered ? '#e8ff47' : '#2e2e2e',
+        color: hovered ? '#e8ff47' : 'var(--muted-faint)',
         letterSpacing: '0.1em',
         paddingTop: 3,
         transition: 'color 0.25s ease',
@@ -72,7 +72,7 @@ function ServiceItem({ number, name, description, index }: {
         <p style={{
           fontFamily: 'DM Sans, sans-serif',
           fontSize: 14, lineHeight: 1.65,
-          color: '#6b6b6b',
+          color: 'var(--muted)',
         }}>
           {description}
         </p>
@@ -148,7 +148,7 @@ export default function Services() {
           <p className="services-intro" style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 17, lineHeight: 1.65,
-            color: '#6b6b6b',
+            color: 'var(--muted)',
             maxWidth: 360,
           }}>
             We do a few things exceptionally well.

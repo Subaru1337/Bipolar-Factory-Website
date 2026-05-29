@@ -1,6 +1,7 @@
 'use client'
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from '@/lib/gsap'
+import { getProductUrl } from '@/lib/products'
 
 const products = [
   {
@@ -189,7 +190,7 @@ export default function Products() {
             <p style={{
               fontFamily: 'DM Sans, sans-serif',
               fontSize: 17, lineHeight: 1.6,
-              color: '#6b6b6b',
+              color: 'var(--muted)',
               maxWidth: 440,
               marginBottom: 40,
             }}>
@@ -197,13 +198,18 @@ export default function Products() {
             </p>
 
             {/* CTA */}
-            <a href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`} style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              fontFamily: 'DM Sans, sans-serif',
-              fontSize: 14, fontWeight: 500,
-              color: product.accent,
-              textDecoration: 'none',
-            }}>
+            <a
+              href={getProductUrl(product.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                fontFamily: 'DM Sans, sans-serif',
+                fontSize: 14, fontWeight: 500,
+                color: product.accent,
+                textDecoration: 'none',
+              }}
+            >
               Explore →
             </a>
           </div>

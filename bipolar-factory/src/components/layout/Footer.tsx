@@ -29,7 +29,7 @@ export default function Footer() {
           <p style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 14, lineHeight: 1.65,
-            color: '#6b6b6b',
+            color: 'var(--muted)',
             maxWidth: 260,
           }}>
             Dedicated technology partner. Custom software built from Coimbatore for the world.
@@ -48,7 +48,7 @@ export default function Footer() {
                 borderRadius: 8,
                 fontFamily: 'Syne, sans-serif',
                 fontSize: 11, fontWeight: 700,
-                color: '#3a3a3a',
+                color: 'var(--muted-dim)',
                 textDecoration: 'none',
                 transition: 'border-color 0.2s, color 0.2s',
               }}
@@ -58,7 +58,7 @@ export default function Footer() {
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.borderColor = '#2a2a2a'
-                  e.currentTarget.style.color = '#3a3a3a'
+                  e.currentTarget.style.color = 'var(--muted-dim)'
                 }}
               >
                 {label}
@@ -72,7 +72,7 @@ export default function Footer() {
           <span style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 10, fontWeight: 500,
-            color: '#2e2e2e', letterSpacing: '0.16em',
+            color: 'var(--muted-faint)', letterSpacing: '0.16em',
             textTransform: 'uppercase',
             marginBottom: 20,
           }}>
@@ -81,13 +81,13 @@ export default function Footer() {
           {navLinks.map(link => (
             <a key={link} href={`/${link.toLowerCase()}`} style={{
               fontFamily: 'DM Sans, sans-serif',
-              fontSize: 14, color: '#6b6b6b',
+              fontSize: 14, color: 'var(--muted)',
               textDecoration: 'none',
               padding: '7px 0',
               transition: 'color 0.2s',
             }}
               onMouseEnter={e => (e.currentTarget.style.color = '#f0ede6')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#6b6b6b')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
             >
               {link}
             </a>
@@ -99,7 +99,7 @@ export default function Footer() {
           <span style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 10, fontWeight: 500,
-            color: '#2e2e2e', letterSpacing: '0.16em',
+            color: 'var(--muted-faint)', letterSpacing: '0.16em',
             textTransform: 'uppercase',
             marginBottom: 20,
           }}>
@@ -108,7 +108,7 @@ export default function Footer() {
           <address style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 14, lineHeight: 2,
-            color: '#6b6b6b',
+            color: 'var(--muted)',
             fontStyle: 'normal',
           }}>
             Bipolar Factory Pvt Ltd<br />
@@ -122,7 +122,7 @@ export default function Footer() {
           <span style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 10, fontWeight: 500,
-            color: '#2e2e2e', letterSpacing: '0.16em',
+            color: 'var(--muted-faint)', letterSpacing: '0.16em',
             textTransform: 'uppercase',
             marginBottom: 20,
           }}>
@@ -131,7 +131,7 @@ export default function Footer() {
           <p style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 14, lineHeight: 1.65,
-            color: '#6b6b6b',
+            color: 'var(--muted)',
             marginBottom: 20,
           }}>
             Have a project in mind? We'd love to hear about it.
@@ -171,18 +171,18 @@ export default function Footer() {
       }}>
         <span style={{
           fontFamily: 'DM Sans, sans-serif',
-          fontSize: 12, color: '#2e2e2e',
+          fontSize: 12, color: 'var(--muted-faint)',
         }}>
           © 2024 Bipolar Factory Pvt Ltd
         </span>
         <a href="/privacy" style={{
           fontFamily: 'DM Sans, sans-serif',
-          fontSize: 12, color: '#2e2e2e',
+          fontSize: 12, color: 'var(--muted-faint)',
           textDecoration: 'none',
           transition: 'color 0.2s',
         }}
-          onMouseEnter={e => (e.currentTarget.style.color = '#6b6b6b')}
-          onMouseLeave={e => (e.currentTarget.style.color = '#2e2e2e')}
+          onMouseEnter={e => (e.currentTarget.style.color = 'var(--muted)')}
+          onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted-faint)')}
         >
           Privacy Policy
         </a>

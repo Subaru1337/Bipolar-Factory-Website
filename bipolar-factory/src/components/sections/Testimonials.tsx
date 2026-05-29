@@ -114,7 +114,7 @@ export default function Testimonials() {
               <blockquote style={{
                 fontFamily: 'DM Sans, sans-serif',
                 fontSize: 15, lineHeight: 1.7,
-                color: '#9a9a9a',
+                color: 'var(--muted)',
                 margin: 0, flex: 1,
               }}>
                 {t.quote}
@@ -135,7 +135,7 @@ export default function Testimonials() {
                 <span style={{
                   fontFamily: 'DM Sans, sans-serif',
                   fontSize: 12,
-                  color: '#3a3a3a',
+                  color: 'var(--muted-dim)',
                   letterSpacing: '0.06em',
                 }}>
                   {t.company} · {t.context}

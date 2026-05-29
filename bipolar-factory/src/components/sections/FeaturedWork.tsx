@@ -102,7 +102,7 @@ export default function FeaturedWork() {
               <p key={i} style={{
                 fontFamily: 'DM Sans, sans-serif',
                 fontSize: 16, lineHeight: 1.7,
-                color: '#6b6b6b',
+                color: 'var(--muted)',
                 maxWidth: 520,
               }}>
                 {para}
@@ -159,7 +159,7 @@ export default function FeaturedWork() {
                 </span>
                 <span style={{
                   fontFamily: 'DM Sans, sans-serif',
-                  fontSize: 11, color: '#3a3a3a',
+                  fontSize: 11, color: 'var(--muted-dim)',
                   letterSpacing: '0.1em', textTransform: 'uppercase',
                 }}>
                   {label}
@@ -176,7 +176,7 @@ export default function FeaturedWork() {
             <blockquote style={{
               fontFamily: 'DM Sans, sans-serif',
               fontSize: 15, lineHeight: 1.65,
-              color: '#6b6b6b',
+              color: 'var(--muted)',
               fontStyle: 'italic',
               margin: 0,
               paddingLeft: 20,
@@ -188,7 +188,7 @@ export default function FeaturedWork() {
               <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500, color: '#f0ede6' }}>
                 Gajapathy Chakravarthy
               </span>
-              <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, color: '#3a3a3a', letterSpacing: '0.08em' }}>
+              <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, color: 'var(--muted-dim)', letterSpacing: '0.08em' }}>
                 iNET Secure Labs
               </span>
             </div>

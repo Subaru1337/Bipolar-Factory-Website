@@ -88,7 +88,7 @@ export default function Hero() {
           {['Products', 'Work', 'Services', 'About', 'Careers'].map(link => (
             <a key={link} href={`/${link.toLowerCase()}`} style={{
               fontFamily: 'DM Sans, sans-serif', fontSize: 13,
-              color: '#6b6b6b', textDecoration: 'none',
+              color: 'var(--muted)', textDecoration: 'none',
             }}>
               {link}
             </a>
@@ -137,7 +137,7 @@ export default function Hero() {
 
           <p style={{
             fontFamily: 'DM Sans, sans-serif', fontSize: 16,
-            color: '#6b6b6b', lineHeight: 1.6,
+            color: 'var(--muted)', lineHeight: 1.6,
             maxWidth: 360, marginBottom: 40,
           }}>
             Software that matters.<br />Built from Coimbatore.
@@ -153,7 +153,7 @@ export default function Hero() {
             </a>
             <a href="/contact" style={{
               fontFamily: 'DM Sans, sans-serif', fontSize: 14,
-              color: '#6b6b6b', background: 'transparent',
+              color: 'var(--muted)', background: 'transparent',
               padding: '13px 26px', borderRadius: 100,
               border: '0.5px solid #2a2a2a', textDecoration: 'none',
             }}>
@@ -170,7 +170,7 @@ export default function Hero() {
           borderLeft: '0.5px solid #1f1f1f',
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-            <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, color: '#2e2e2e', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Status</span>
+            <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, color: 'var(--muted-faint)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Status</span>
             <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500, color: '#e8ff47', display: 'flex', alignItems: 'center', gap: 6 }}>
               <span style={{
                 display: 'inline-block', width: 6, height: 6, borderRadius: '50%', background: '#e8ff47',
@@ -185,7 +185,7 @@ export default function Hero() {
             { label: 'Founded', value: '2019' },
           ].map(({ label, value }) => (
             <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-              <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, color: '#2e2e2e', letterSpacing: '0.12em', textTransform: 'uppercase' }}>{label}</span>
+              <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, color: 'var(--muted-faint)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>{label}</span>
               <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500, color: '#f0ede6' }}>{value}</span>
             </div>
           ))}
@@ -210,14 +210,14 @@ export default function Hero() {
               {i > 0 && <div key={`d${i}`} style={{ width: '0.5px', height: 32, background: '#1f1f1f' }} />}
               <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                 <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: 24, color: '#f0ede6', letterSpacing: '-0.03em' }}>{value}</span>
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, color: '#3a3a3a', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{label}</span>
+                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, color: 'var(--muted-dim)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{label}</span>
               </div>
             </span>
           ))}
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-          <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, color: '#3a3a3a', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Scroll</span>
+          <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, color: 'var(--muted-dim)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Scroll</span>
           <div style={{ width: '0.5px', height: 40, background: '#2a2a2a', position: 'relative', overflow: 'hidden' }}>
             <div style={{
               position: 'absolute', top: '-100%', left: 0, width: '100%', height: '100%',

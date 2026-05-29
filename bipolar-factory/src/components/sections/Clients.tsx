@@ -87,7 +87,7 @@ export default function Clients() {
           <p className="clients-sub" style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 16, lineHeight: 1.65,
-            color: '#6b6b6b',
+            color: 'var(--muted)',
             maxWidth: 440,
           }}>
             We don't do one-off projects. We build relationships that last.
@@ -144,7 +144,7 @@ export default function Clients() {
                 </span>
                 <span style={{
                   fontFamily: 'DM Sans, sans-serif',
-                  fontSize: 12, color: '#3a3a3a',
+                  fontSize: 12, color: 'var(--muted-dim)',
                   letterSpacing: '0.08em', textTransform: 'uppercase',
                 }}>
                   {client.context}

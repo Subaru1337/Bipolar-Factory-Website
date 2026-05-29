@@ -94,7 +94,7 @@ export default function Careers() {
         <p className="careers-sub" style={{
           fontFamily: 'DM Sans, sans-serif',
           fontSize: 17, lineHeight: 1.65,
-          color: '#6b6b6b',
+          color: 'var(--muted)',
           marginBottom: 56,
           textAlign: 'center',
         }}>

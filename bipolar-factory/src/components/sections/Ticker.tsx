@@ -21,7 +21,7 @@ function TickerInner({ hidden }: { hidden?: boolean }) {
           <span style={{
             fontFamily: 'DM Sans, sans-serif',
             fontSize: 12, fontWeight: 500,
-            color: lit ? '#f0ede6' : '#3a3a3a',
+            color: lit ? '#f0ede6' : 'var(--muted-dim)',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             padding: '0 28px',

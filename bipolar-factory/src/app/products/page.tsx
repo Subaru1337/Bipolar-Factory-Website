@@ -1,44 +1,228 @@
+'use client'
+import { useLayoutEffect, useRef, useState } from 'react'
+import { gsap } from '@/lib/gsap'
+import Link from 'next/link'
+
+const NAV = ['Products', 'Work', 'Services', 'About', 'Careers']
+
 const products = [
   {
-    slug: 'oly-store-sync',
+    index: '01',
     name: 'OLY Store Sync',
-    blurb:
-      'Advanced retail analytics that unlocks insights from existing security cameras, including footfall, dwell time, conversion, and path behavior.'
+    tag: 'SaaS · Retail Analytics',
+    accent: '#4d9fff',
+    website: 'https://www.oly.live/',
+    deployedBy: ['Max Stores'],
+    description: 'An advanced retail analytics solution designed to unlock the full potential of your existing security cameras, going beyond basic image capture to deliver unparalleled insights.',
+    detail: 'Store Sync is exclusively crafted for retail establishments, empowering them to harness the full spectrum of Brick and Mortar Analytics capabilities. With cutting-edge AI and machine learning, Store Sync offers comprehensive insights into customer interactions such as foot traffic, dwell time, demographics, path analysis and conversion rates.',
+    features: ['A.I. Automation', 'Heat Mapping', 'Camera Health', 'Theft / Fire Detection', 'Alarm Triggers'],
   },
   {
-    slug: 'oly-control-center',
+    index: '02',
     name: 'OLY Control Center',
-    blurb:
-      'A centralized video management system with live widgets, map views, and customizable dashboards for enterprise monitoring.'
+    tag: 'Video Management System',
+    accent: '#4d9fff',
+    website: 'https://www.oly.live/',
+    deployedBy: ['Election Commission of India', 'Govt. of Tamil Nadu'],
+    description: 'Enterprises can leverage Oly\'s advanced Video Management System for centralised oversight and monitoring of security cameras.',
+    detail: 'Control Center, characterised by a data-driven design and a customisable dashboard featuring useful widgets, can seamlessly integrate with Oly Store Sync or operate independently as a standalone software, seamlessly working with your existing retail analytics suite.',
+    features: ['Camera Control', 'Live Widgets', 'Recording and Storage', 'Map View'],
   },
   {
-    slug: 'metawood',
+    index: '03',
     name: 'Metawood',
-    blurb:
-      'A gamified streaming platform and decentralized creator economy blending immersive virtual experiences with creator monetization.'
-  }
+    tag: 'Web3 · Creator Economy',
+    accent: '#e8ff47',
+    website: 'https://www.themetawood.com/',
+    deployedBy: [],
+    description: 'A pioneering fusion of a gamified streaming platform and a decentralized creator economy, harnessing the power of the metaverse and virtual reality.',
+    detail: 'Production houses can gain complete command over their content by orchestrating live events, screenings, and concerts within its immersive environment. Content Creators can leverage the benefits of the decentralised economy, showcasing their talents and generating revenue effortlessly.',
+    features: ['Single-player Story Mode', 'Watch Party', 'Free Roam', 'Virtual Theater'],
+  },
 ]
 
-export default function ProductsPage() {
+function Nav() {
   return (
-    <main style={{ background: '#0a0a0a', color: '#f0ede6', minHeight: '100vh', padding: '56px 48px' }}>
-      <p style={{ color: '#e8ff47', letterSpacing: '0.12em', fontSize: 12, marginBottom: 12 }}>PRODUCTS</p>
-      <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(36px, 5vw, 64px)', marginBottom: 16 }}>Our Tech, Your Odyssey</h1>
-      <p style={{ color: '#6b6b6b', maxWidth: 760, lineHeight: 1.7, marginBottom: 32 }}>
-        Each product is designed to meet current market demands while helping teams move to the frontier of their industries.
-      </p>
-
-      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 16 }}>
-        {products.map((product) => (
-          <article key={product.slug} style={{ background: '#111111', border: '0.5px solid #1f1f1f', borderRadius: 14, padding: 24 }}>
-            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, marginBottom: 12 }}>{product.name}</h2>
-            <p style={{ color: '#6b6b6b', lineHeight: 1.7, marginBottom: 20 }}>{product.blurb}</p>
-            <a href={`/products/${product.slug}`} style={{ color: '#e8ff47', textDecoration: 'none' }}>
-              Explore product →
-            </a>
-          </article>
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      padding: '0 48px', height: 64,
+      background: 'rgba(10,10,10,0.85)', backdropFilter: 'blur(12px)',
+      borderBottom: '0.5px solid #1f1f1f',
+    }}>
+      <Link href="/" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 16, color: '#f0ede6', textDecoration: 'none', letterSpacing: '-0.02em' }}>
+        BPF<span style={{ color: '#e8ff47' }}>.</span>
+      </Link>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+        {NAV.map(n => (
+          <Link key={n} href={`/${n.toLowerCase()}`} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, color: n === 'Products' ? '#e8ff47' : 'var(--muted)', textDecoration: 'none' }}>
+            {n}
+          </Link>
         ))}
-      </section>
-    </main>
+        <Link href="/contact" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500, color: '#0a0a0a', background: '#e8ff47', padding: '8px 18px', borderRadius: 100, textDecoration: 'none' }}>
+          Contact us
+        </Link>
+      </div>
+    </nav>
+  )
+}
+
+export default function ProductsPage() {
+  const pageRef = useRef<HTMLDivElement>(null)
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.page-eyebrow', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out', delay: 0.1 })
+      gsap.from('.page-headline', { opacity: 0, y: 40, duration: 0.8, ease: 'power3.out', delay: 0.2 })
+      gsap.from('.page-sub', { opacity: 0, y: 30, duration: 0.6, ease: 'power3.out', delay: 0.35 })
+      gsap.from('.product-row', {
+        opacity: 0, y: 60,
+        duration: 0.8, stagger: 0.2, ease: 'power3.out',
+        scrollTrigger: { trigger: '.products-list', start: 'top 80%', once: true }
+      })
+    }, pageRef)
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <div ref={pageRef} style={{ background: '#0a0a0a', minHeight: '100vh', color: '#f0ede6' }}>
+      <Nav />
+
+      {/* Hero */}
+      <div style={{ padding: '140px 48px 80px', borderBottom: '0.5px solid #1f1f1f', maxWidth: 1400, margin: '0 auto' }}>
+        <p className="page-eyebrow" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, fontWeight: 500, color: '#e8ff47', letterSpacing: '0.18em', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
+          <span style={{ display: 'block', width: 24, height: 1, background: '#e8ff47' }} />
+          Products
+        </p>
+        <h1 className="page-headline" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(48px, 8vw, 110px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginBottom: 32, maxWidth: 900 }}>
+          Our tech,<br /><span style={{ color: '#e8ff47' }}>your odyssey.</span>
+        </h1>
+        <p className="page-sub" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, color: 'var(--muted)', lineHeight: 1.6, maxWidth: 520 }}>
+          Each product is crafted to not only meet current market demands but to propel users into the forefront of their industries.
+        </p>
+      </div>
+
+      {/* Products list */}
+      <div className="products-list" style={{ maxWidth: 1400, margin: '0 auto' }}>
+        {products.map((p, i) => (
+          <div key={p.index} className="product-row" style={{
+            display: 'grid',
+            gridTemplateColumns: i % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
+            borderBottom: '0.5px solid #1f1f1f',
+          }}>
+            {/* Left panel */}
+            <div style={{
+              padding: '80px 48px',
+              borderRight: '0.5px solid #1f1f1f',
+              display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+              background: i % 2 === 1 ? '#0d0d0d' : '#0a0a0a',
+              position: 'relative', overflow: 'hidden',
+            }}>
+              {/* Big index number */}
+              <span style={{
+                position: 'absolute', top: 24, right: 32,
+                fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 120,
+                color: '#161616', letterSpacing: '-0.04em', lineHeight: 1,
+                userSelect: 'none',
+              }}>{p.index}</span>
+
+              <div>
+                <span style={{
+                  display: 'inline-block',
+                  fontFamily: 'DM Sans, sans-serif', fontSize: 11, fontWeight: 500,
+                  color: p.accent, letterSpacing: '0.12em', textTransform: 'uppercase',
+                  border: `0.5px solid ${p.accent}40`, padding: '5px 12px', borderRadius: 100,
+                  marginBottom: 28,
+                }}>{p.tag}</span>
+
+                <h2 style={{
+                  fontFamily: 'Syne, sans-serif', fontWeight: 800,
+                  fontSize: 'clamp(32px, 4vw, 52px)', lineHeight: 1.0,
+                  letterSpacing: '-0.03em', marginBottom: 24, maxWidth: 400,
+                }}>{p.name}</h2>
+
+                <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, color: 'var(--muted)', lineHeight: 1.7, maxWidth: 420, marginBottom: 32 }}>
+                  {p.description}
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', gap: 12 }}>
+                {p.website && (
+                  <a href={p.website} target="_blank" rel="noopener noreferrer" style={{
+                    fontFamily: 'DM Sans, sans-serif', fontSize: 13, fontWeight: 500,
+                    color: '#0a0a0a', background: p.accent,
+                    padding: '10px 22px', borderRadius: 100, textDecoration: 'none',
+                  }}>Visit Website →</a>
+                )}
+                <Link href="/contact" style={{
+                  fontFamily: 'DM Sans, sans-serif', fontSize: 13,
+                  color: 'var(--muted)', border: '0.5px solid #2a2a2a',
+                  padding: '10px 22px', borderRadius: 100, textDecoration: 'none',
+                }}>Contact Us</Link>
+              </div>
+            </div>
+
+            {/* Right panel */}
+            <div style={{
+              padding: '80px 48px',
+              background: '#111111',
+              display: 'flex', flexDirection: 'column', gap: 40,
+            }}>
+              <div>
+                <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 15, color: 'var(--muted)', lineHeight: 1.75 }}>
+                  {p.detail}
+                </p>
+              </div>
+
+              <div>
+                <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, fontWeight: 500, color: 'var(--muted-faint)', letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: 16 }}>
+                  Features
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+                  {p.features.map((f, fi) => (
+                    <div key={fi} style={{
+                      display: 'flex', alignItems: 'center', gap: 12,
+                      padding: '12px 0',
+                      borderBottom: fi < p.features.length - 1 ? '0.5px solid #1a1a1a' : 'none',
+                    }}>
+                      <span style={{ width: 4, height: 4, borderRadius: '50%', background: p.accent, flexShrink: 0 }} />
+                      <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#f0ede6' }}>{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {p.deployedBy.length > 0 && (
+                <div>
+                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 10, fontWeight: 500, color: 'var(--muted-faint)', letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: 12 }}>
+                    Deployed by
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    {p.deployedBy.map(d => (
+                      <span key={d} style={{
+                        fontFamily: 'DM Sans, sans-serif', fontSize: 12,
+                        color: 'var(--muted)', border: '0.5px solid #1f1f1f',
+                        padding: '4px 12px', borderRadius: 100,
+                      }}>{d}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <div style={{ textAlign: 'center', padding: '100px 48px', borderTop: '0.5px solid #1f1f1f' }}>
+        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 11, color: '#e8ff47', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>Ready to start?</p>
+        <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-0.03em', marginBottom: 40 }}>
+          Let's build something<br /><span style={{ color: '#e8ff47' }}>that matters.</span>
+        </h2>
+        <Link href="/contact" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 15, fontWeight: 500, color: '#0a0a0a', background: '#e8ff47', padding: '16px 36px', borderRadius: 100, textDecoration: 'none' }}>
+          Get in touch →
+        </Link>
+      </div>
+    </div>
   )
 }
