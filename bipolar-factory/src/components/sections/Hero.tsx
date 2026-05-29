@@ -2,62 +2,22 @@
 import { useEffect, useRef } from 'react'
 import ThemeToggle from '@/components/ThemeToggle'
 
+const HERO_VIDEO_SRC = '/videos/A_cinematic_slow_motion_simula.mp4'
+
 export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    const el = canvasRef.current
-    if (!el) return
-    const ctx = el.getContext('2d')!
-    el.width = el.offsetWidth
-    el.height = el.offsetHeight
-    const canvas = el
+    const video = videoRef.current
+    if (!video) return
 
-    const pts = Array.from({ length: 55 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.1 + 0.3,
-      vy: -(Math.random() * 0.22 + 0.07),
-      o: Math.random() * 0.3 + 0.07,
-    }))
-
-    function getAccentRgb() {
-      const raw = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()
-      if (!raw) return '232,255,71'
-      const hex = raw.startsWith('#') ? raw.slice(1) : raw
-      if (hex.length !== 6) return '232,255,71'
-      const r = parseInt(hex.slice(0, 2), 16)
-      const g = parseInt(hex.slice(2, 4), 16)
-      const b = parseInt(hex.slice(4, 6), 16)
-      return `${r},${g},${b}`
+    const play = () => {
+      video.play().catch(() => {})
     }
 
-    let raf: number
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      const rgb = getAccentRgb()
-      pts.forEach(p => {
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(${rgb},${p.o})`
-        ctx.fill()
-        p.y += p.vy
-        if (p.y < -4) { p.y = canvas.height + 4; p.x = Math.random() * canvas.width }
-      })
-      raf = requestAnimationFrame(draw)
-    }
-    draw()
-
-    const onResize = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-    }
-    window.addEventListener('resize', onResize)
-
-    return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener('resize', onResize)
-    }
+    play()
+    video.addEventListener('loadeddata', play)
+    return () => video.removeEventListener('loadeddata', play)
   }, [])
 
   return (
@@ -73,11 +33,21 @@ export default function Hero() {
       transition: 'background 0.3s ease',
     }}>
 
-      {/* Canvas — particles */}
-      <canvas
-        ref={canvasRef}
-        style={{ position: 'absolute', inset: 0, zIndex: 1, width: '100%', height: '100%' }}
-      />
+      {/* Background video */}
+      <div className="hero-video-wrap" aria-hidden>
+        <video
+          ref={videoRef}
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src={HERO_VIDEO_SRC} type="video/mp4" />
+        </video>
+        <div className="hero-video-overlay" />
+      </div>
 
       {/* Grid overlay */}
       <div style={{
@@ -85,7 +55,7 @@ export default function Hero() {
         backgroundImage:
           'linear-gradient(var(--border) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px)',
         backgroundSize: '80px 80px',
-        opacity: 0.4,
+        opacity: 0.35,
       }} />
 
       {/* Nav */}
