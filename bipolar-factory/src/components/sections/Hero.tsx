@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
 import ThemeToggle from '@/components/ThemeToggle'
 
 export default function Hero() {
@@ -144,7 +143,7 @@ export default function Hero() {
             marginBottom: 28, display: 'flex', alignItems: 'center', gap: 10,
           }}>
             <span style={{ display: 'block', width: 24, height: 1, background: 'var(--accent)' }} />
-            Bipolar Factory — Est. 2019
+            Bipolar Factory — Est. 2020
           </p>
 
           <h1 style={{
@@ -217,7 +216,7 @@ export default function Hero() {
           {[
             { label: 'Based in', value: 'Coimbatore, IN' },
             { label: 'Serving',  value: 'Global clients' },
-            { label: 'Founded',  value: '2019' },
+            { label: 'Founded',  value: '2020' },
           ].map(({ label, value }) => (
             <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
               <span style={{
@@ -294,47 +293,6 @@ export default function Hero() {
             }} />
           </div>
         </div>
-      </div>
-
-      {/* Cookie & privacy link */}
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 6,
-        padding: '20px 0 28px',
-        position: 'relative',
-        zIndex: 10,
-      }}>
-        <Link
-          href="/privacy"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 6,
-            fontFamily: 'DM Sans, sans-serif',
-            fontSize: 13,
-            fontWeight: 600,
-            color: 'var(--text)',
-            textDecoration: 'underline',
-            textUnderlineOffset: 4,
-            transition: 'color 0.2s',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
-          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text)')}
-        >
-          Cookie and Privacy Policy
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-            <path d="M7 17L17 7M17 7H9M17 7V15" />
-          </svg>
-        </Link>
-        <span style={{
-          fontFamily: 'DM Sans, sans-serif',
-          fontSize: 12,
-          color: 'var(--muted-dim)',
-        }}>
-          © 2024 Bipolar Factory. All Rights Reserved.
-        </span>
       </div>
 
       <style>{`
